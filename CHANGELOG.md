@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.5
+- Changed new color system for svg icon.
+- You can change the SVG Icon easily.
+- Enjoy the 1.0.5 version.
+
 ## 1.0.4
 - Added new version for improve the package
 

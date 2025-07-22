@@ -15,6 +15,7 @@ class SocialButton extends StatelessWidget {
   final TextStyle? textStyle;
   final double? iconHeight; // New parameter for icon height
   final double? iconWidth; // New parameter for icon width
+  final Color? iconColor;
 
   const SocialButton({
     super.key,
@@ -31,6 +32,7 @@ class SocialButton extends StatelessWidget {
     this.textStyle,
     this.iconHeight,
     this.iconWidth,
+    this.iconColor,
   });
 
   @override
@@ -55,10 +57,10 @@ class SocialButton extends StatelessWidget {
           children: [
             SvgPicture.asset(
               svgIcon,
-              height: iconHeight ?? (textStyle?.fontSize ?? 16.0) + 4.0,
-              width: iconWidth ?? (textStyle?.fontSize ?? 16.0) + 4.0,
-              colorFilter: textStyle?.color != null
-                  ? ColorFilter.mode(textStyle!.color!, BlendMode.srcIn)
+              height: iconHeight ?? 24,
+              width: iconWidth ?? 24,
+              colorFilter: iconColor != null
+                  ? ColorFilter.mode(iconColor!, BlendMode.srcIn)
                   : null,
             ),
             const SizedBox(width: 8.0),

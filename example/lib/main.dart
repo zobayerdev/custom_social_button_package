@@ -68,6 +68,7 @@ class SocialButtonDemo extends StatelessWidget {
               color: Colors.pink,
               height: 60.0,
               borderRadius: 8.0,
+              iconColor: Colors.green,
               textStyle: const TextStyle(
                 color: Colors.white,
                 fontSize: 16.0,
