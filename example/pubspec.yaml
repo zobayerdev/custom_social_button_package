@@ -1,0 +1,20 @@
+name: custom_social_button_example
+description: Example app for the custom_social_button package.
+publish_to: 'none' # Prevents accidental publishing of the example
+
+environment:
+  sdk: '>=2.18.0 <3.0.0'
+  flutter: '>=3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  custom_social_button:
+    path: ../ # References the parent package
+  flutter_svg: ^2.0.7
+
+flutter:
+  assets:
+    - assets/icons/facebook.svg
+    - assets/icons/github.svg
+    - assets/icons/google.svg
