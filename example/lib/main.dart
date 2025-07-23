@@ -37,9 +37,8 @@ class SocialButtonDemo extends StatelessWidget {
           children: [
             // Facebook Button
             SocialButton(
-              title: 'facebook',
               buttonTitle: 'Sign in with Facebook',
-              svgIcon: 'assets/icons/facebook.svg',
+              svgIcon: 'assets/facebook.svg',
               color: Colors.blue,
               height: 50.0,
               width: 300.0,
@@ -60,38 +59,26 @@ class SocialButtonDemo extends StatelessWidget {
               },
             ),
             const SizedBox(height: 16.0),
-            // Instagram Button with different styling
-            SocialButton(
-              title: 'instagram',
-              buttonTitle: 'Sign in with Instagram',
-              svgIcon: 'assets/icons/instagram.svg',
-              color: Colors.pink,
-              height: 60.0,
-              borderRadius: 8.0,
-              iconColor: Colors.green,
-              textStyle: const TextStyle(
-                color: Colors.white,
-                fontSize: 16.0,
-                fontWeight: FontWeight.w600,
-              ),
-              iconHeight: 20.0,
-              iconWidth: 20.0,
-              onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Instagram button tapped!')),
-                );
-              },
-            ),
-            const SizedBox(height: 16.0),
             // Google Button with minimal customization
             SocialButton(
-              title: 'google',
               buttonTitle: 'Sign in with Google',
-              svgIcon: 'assets/icons/google.svg',
+              svgIcon: 'assets/google.svg',
               color: Colors.red,
               onTap: () {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Google button tapped!')),
+                );
+              },
+            ),
+            const SizedBox(height: 16.0),
+            // GitHub Button
+            SocialButton(
+              buttonTitle: 'Sign in with GitHub',
+              svgIcon: 'assets/github.svg',
+              color: Colors.black,
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('GitHub button tapped!')),
                 );
               },
             ),
