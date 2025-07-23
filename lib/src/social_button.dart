@@ -7,6 +7,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 /// social media login or sharing functionalities. It is highly customizable,
 /// allowing you to define its appearance and behavior.
 class SocialButton extends StatelessWidget {
+  /// The title of the button.
+  final String? title;
+
   /// The text displayed on the button.
   final String buttonTitle;
 
@@ -64,7 +67,7 @@ class SocialButton extends StatelessWidget {
 
   /// The color of the icon.
   ///
-  -/// If null, the icon will be displayed with its original colors.
+  /// If null, the icon will be displayed with its original colors.
   final Color? iconColor;
 
   /// Creates a [SocialButton].
@@ -72,6 +75,7 @@ class SocialButton extends StatelessWidget {
   /// The [buttonTitle] and [svgIcon] parameters are required.
   const SocialButton({
     super.key,
+    this.title,
     required this.buttonTitle,
     required this.svgIcon,
     this.color,

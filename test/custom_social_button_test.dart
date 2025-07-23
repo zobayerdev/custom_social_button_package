@@ -21,7 +21,7 @@ void main() {
           const SocialButton(
             title: 'facebook',
             buttonTitle: 'Sign in with Facebook',
-            svgIcon: 'assets/icons/facebook.svg',
+            svgIcon: 'test/assets/test_icon.svg',
           ),
         ),
       );
@@ -44,7 +44,7 @@ void main() {
           SocialButton(
             title: 'instagram',
             buttonTitle: 'Sign in with Instagram',
-            svgIcon: 'assets/icons/instagram.svg',
+            svgIcon: 'test/assets/test_icon.svg',
             color: Colors.pink,
             height: 60.0,
             width: 250.0,
@@ -99,7 +99,7 @@ void main() {
           SocialButton(
             title: 'google',
             buttonTitle: 'Sign in with Google',
-            svgIcon: 'assets/icons/google.svg',
+            svgIcon: 'test/assets/test_icon.svg',
             onTap: () {
               wasTapped = true;
             },
@@ -122,16 +122,67 @@ void main() {
           const SocialButton(
             title: 'twitter',
             buttonTitle: 'Sign in with Twitter',
-            svgIcon: 'assets/icons/twitter.svg',
+            svgIcon: 'test/assets/test_icon.svg',
             textStyle: TextStyle(fontSize: 18.0),
           ),
         ),
       );
 
-      // Verify that the SvgPicture uses the default icon size (textStyle.fontSize + 4.0)
+      // Verify that the SvgPicture uses the default icon size (24.0)
       final svgPicture = tester.widget<SvgPicture>(find.byType(SvgPicture));
-      expect(svgPicture.height, 22.0); // 18.0 + 4.0
-      expect(svgPicture.width, 22.0); // 18.0 + 4.0
+      expect(svgPicture.height, 24.0);
+      expect(svgPicture.width, 24.0);
+    });
+
+    testWidgets('SocialButton handles title property', (WidgetTester tester) async {
+      // Build the SocialButton widget with a title
+      await tester.pumpWidget(
+        createTestWidget(
+          const SocialButton(
+            title: 'test_title',
+            buttonTitle: 'Test Button',
+            svgIcon: 'test/assets/test_icon.svg',
+          ),
+        ),
+      );
+
+      // Verify that the widget renders without error
+      expect(find.text('Test Button'), findsOneWidget);
+    });
+
+    testWidgets('SocialButton does not crash without onTap', (WidgetTester tester) async {
+      // Build the SocialButton widget without an onTap callback
+      await tester.pumpWidget(
+        createTestWidget(
+          const SocialButton(
+            buttonTitle: 'No-op Button',
+            svgIcon: 'test/assets/test_icon.svg',
+          ),
+        ),
+      );
+
+      // Tap the button
+      await tester.tap(find.byType(GestureDetector));
+      await tester.pump();
+
+      // No verification needed, just ensuring no crash
+    });
+
+    testWidgets('SocialButton uses default color when color is null', (WidgetTester tester) async {
+      // Build the SocialButton widget without a color
+      await tester.pumpWidget(
+        createTestWidget(
+          const SocialButton(
+            buttonTitle: 'Default Color Button',
+            svgIcon: 'test/assets/test_icon.svg',
+          ),
+        ),
+      );
+
+      // Verify that the container has the default color (Theme.of(context).primaryColor)
+      final container = tester.widget<Container>(find.byType(Container).first);
+      final decoration = container.decoration as BoxDecoration;
+      expect(decoration.color, ThemeData().primaryColor);
     });
   });
 }

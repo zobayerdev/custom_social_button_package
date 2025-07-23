@@ -15,6 +15,6 @@ dependencies:
 
 flutter:
   assets:
-    - assets/icons/facebook.svg
-    - assets/icons/github.svg
-    - assets/icons/google.svg
+    - assets/facebook.svg
+    - assets/github.svg
+    - assets/google.svg
