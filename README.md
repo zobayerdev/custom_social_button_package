@@ -1,6 +1,8 @@
 # Custom Social Button
 
-A customizable Flutter button widget that displays an SVG icon based on the provided social platform `title` (e.g., 'facebook', 'google') alongside a customizable button title.
+A customizable Flutter button widget that displays an SVG icon based on the provided social platform `title` (e.g., 'facebook', 'google', 'apple', 'github', 'twitter', 'messenger', 'linkedin') alongside a customizable button title.
+
+<img width="377" height="417" alt="Screenshot_3" src="https://github.com/user-attachments/assets/44fa968f-37ee-4caa-9028-c1bf8766e80c" />
 
 ## Features
 - Automatically selects an SVG icon based on the `title` (e.g., 'facebook' maps to `assets/icons/facebook.svg`).
