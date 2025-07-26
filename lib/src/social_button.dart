@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 class SocialButton extends StatelessWidget {
   final String title;
   final String buttonTitle;
-  final String svgIcon; // Mandatory SVG icon path
   final Color? color;
   final double? height;
   final double? width;
@@ -13,15 +12,26 @@ class SocialButton extends StatelessWidget {
   final Color? borderColor;
   final double? borderWidth;
   final TextStyle? textStyle;
-  final double? iconHeight; // New parameter for icon height
-  final double? iconWidth; // New parameter for icon width
+  final double? iconHeight;
+  final double? iconWidth;
   final Color? iconColor;
+
+  // Map to associate titles with SVG icon paths
+  static const Map<String, String> _iconMap = {
+    'facebook': 'assets/icons/facebook.svg',
+    'google': 'assets/icons/google.svg',
+    'twitter': 'assets/icons/twitter.svg',
+    'github': 'assets/icons/github.svg',
+    'linkedin': 'assets/icons/linkedin.svg',
+    'messenger': 'assets/icons/messenger.svg',
+    'apple': 'assets/icons/apple.svg',
+    // Add more mappings as needed
+  };
 
   const SocialButton({
     super.key,
     required this.title,
     required this.buttonTitle,
-    required this.svgIcon,
     this.color,
     this.height,
     this.width,
@@ -34,6 +44,12 @@ class SocialButton extends StatelessWidget {
     this.iconWidth,
     this.iconColor,
   });
+
+  // Helper method to get the SVG icon path
+  String _getSvgIcon() {
+    final key = title.toLowerCase();
+    return _iconMap[key] ?? 'assets/icons/facebook.svg'; // Fallback to default icon
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +72,7 @@ class SocialButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(
-              svgIcon,
+              _getSvgIcon(),
               height: iconHeight ?? 24,
               width: iconWidth ?? 24,
               colorFilter: iconColor != null

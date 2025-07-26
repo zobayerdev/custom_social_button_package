@@ -1,28 +1,29 @@
 # Custom Social Button
 
-A customizable Flutter button widget that displays user-provided SVG icons with customizable size alongside the button title.
+A customizable Flutter button widget that displays an SVG icon based on the provided social platform `title` (e.g., 'facebook', 'google') alongside a customizable button title.
 
 ## Features
-- Displays a user-provided SVG icon alongside the button title.
+- Automatically selects an SVG icon based on the `title` (e.g., 'facebook' maps to `assets/icons/facebook.svg`).
 - Customizable icon size with `iconHeight` and `iconWidth` parameters.
-- Customizable button properties: color, height, width, onTap, borderRadius, borderColor, borderWidth, and textStyle.
-- Mandatory parameters: `title`, `buttonTitle`, and `svgIcon`.
+- Customizable button properties: background color, height, width, tap callback, border radius, border color, border width, and text style.
+- Mandatory parameters: `title` and `buttonTitle`.
 - Uses `flutter_svg` for rendering SVG icons.
+- Supports popular social platforms like Facebook, Google, and Twitter out of the box.
 
 ## Installation
-Add this to your `pubspec.yaml`:
+Add the following to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  custom_social_button: ^1.0.3
+  custom_social_button: ^1.0.6
 ```
 
-Ensure you have your SVG assets included in your project's `pubspec.yaml` under `flutter: assets:`.
+Ensure your SVG assets are included in your project's `pubspec.yaml` under `flutter: assets:`.
 
-Run `flutter pub get` to install the package.
+Run `flutter pub get` to install the package and its dependencies.
 
 ## Usage
-Below is an example of how to use the `SocialButton` widget in a Flutter app. This example creates a simple app with three social buttons (Facebook, Instagram, and Google) showcasing different customization options.
+Below is an example of how to use the `SocialButton` widget in a Flutter app. This example creates a simple app with three social buttons (Facebook, Google, and Twitter) showcasing different customization options.
 
 ### Example App
 
@@ -70,7 +71,6 @@ class SocialButtonDemo extends StatelessWidget {
             SocialButton(
               title: 'facebook',
               buttonTitle: 'Sign in with Facebook',
-              svgIcon: 'assets/icons/facebook.svg',
               color: Colors.blue,
               height: 50.0,
               width: 300.0,
@@ -91,37 +91,38 @@ class SocialButtonDemo extends StatelessWidget {
               },
             ),
             const SizedBox(height: 16.0),
-            // Instagram Button with different styling
+            // Google Button
             SocialButton(
-              title: 'instagram',
-              buttonTitle: 'Sign in with Instagram',
-              svgIcon: 'assets/icons/instagram.svg',
-              color: Colors.pink,
-              height: 60.0,
-              borderRadius: 8.0,
+              title: 'google',
+              buttonTitle: 'Sign in with Google',
+              color: Colors.red,
+              height: 50.0,
+              width: 300.0,
+              borderRadius: 12.0,
+              borderColor: Colors.redAccent,
+              borderWidth: 2.0,
               textStyle: const TextStyle(
                 color: Colors.white,
-                fontSize: 16.0,
-                fontWeight: FontWeight.w600,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
               ),
-              iconHeight: 20.0,
-              iconWidth: 20.0,
+              iconHeight: 24.0,
+              iconWidth: 24.0,
               onTap: () {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Instagram button tapped!')),
+                  const SnackBar(content: Text('Google button tapped!')),
                 );
               },
             ),
             const SizedBox(height: 16.0),
-            // Google Button with minimal customization
+            // Twitter Button with minimal customization
             SocialButton(
-              title: 'google',
-              buttonTitle: 'Sign in with Google',
-              svgIcon: 'assets/icons/google.svg',
-              color: Colors.red,
+              title: 'twitter',
+              buttonTitle: 'Sign in with Twitter',
+              color: Colors.lightBlue,
               onTap: () {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Google button tapped!')),
+                  const SnackBar(content: Text('Twitter button tapped!')),
                 );
               },
             ),
@@ -134,47 +135,36 @@ class SocialButtonDemo extends StatelessWidget {
 ```
 
 ### Setup Instructions
-1. **Add SVG Assets**:
-   - Create an `assets/icons/` folder in your project.
-   - Add SVG files (e.g., `facebook.svg`, `instagram.svg`, `google.svg`) to this folder. You can download these from free resources like Flaticon or Icons8.
-   - Declare the assets in your `pubspec.yaml`:
-     ```yaml
-     flutter:
-       assets:
-         - assets/icons/facebook.svg
-         - assets/icons/instagram.svg
-         - assets/icons/google.svg
-     ```
-
-2. **Install Dependencies**:
+1. **Install Dependencies**:
    - Run `flutter pub get` to install the `custom_social_button` package and its dependencies.
 
-3. **Run the App**:
+2. **Run the App**:
    - Replace your project's `main.dart` with the above code.
    - Run the app using `flutter run`.
 
 ## Parameters
 | Parameter      | Type              | Description                                      | Required |
 |----------------|-------------------|--------------------------------------------------|----------|
-| title          | String            | Social platform name (e.g., 'facebook', 'google') | Yes      |
+| title          | String            | Social platform name (e.g., 'facebook', 'google', 'twitter') to select the SVG icon | Yes      |
 | buttonTitle    | String            | Text displayed on the button                     | Yes      |
-| svgIcon        | String            | Path to the SVG icon asset                       | Yes      |
 | color          | Color?            | Background color of the button                   | No       |
-| height         | double?           | Height of the button                             | No       |
-| width          | double?           | Width of the button                              | No       |
-| onTap          | VoidCallback?     | Callback function when the button is tapped       | No       |
-| borderRadius   | double?           | Border radius of the button                      | No       |
+| height         | double?           | Height of the button (defaults to 48.0)         | No       |
+| width          | double?           | Width of the button (defaults to full width)    | No       |
+| onTap          | VoidCallback?     | Callback function when the button is tapped      | No       |
+| borderRadius   | double?           | Border radius of the button (defaults to 8.0)   | No       |
 | borderColor    | Color?            | Border color of the button                       | No       |
 | borderWidth    | double?           | Border width of the button                       | No       |
-| textStyle      | TextStyle?        | Style of the button text                         | No       |
-| iconHeight     | double?           | Height of the SVG icon                           | No       |
-| iconWidth      | double?           | Width of the SVG icon                            | No       |
+| textStyle      | TextStyle?        | Style of the button text (defaults to white, 16.0, medium weight) | No       |
+| iconHeight     | double?           | Height of the SVG icon (defaults to 24.0)       | No       |
+| iconWidth      | double?           | Width of the SVG icon (defaults to 24.0)        | No       |
+| iconColor      | Color?            | Color filter for the SVG icon                    | No       |
 
 ## Notes
-- Users must provide their own SVG icons in their project's asset folder and declare them in `pubspec.yaml`.
-- The `svgIcon` parameter is mandatory and must point to a valid SVG file.
-- SVG icons must be accessible in the project's asset folder.
-- If `iconHeight` or `iconWidth` is not provided, the icon size defaults to the text style's font size plus 4.0.
+- The `title` parameter determines the SVG icon, which is automatically mapped to an asset path (e.g., `facebook` maps to `assets/icons/facebook.svg`).
+- Supported platforms include `facebook`, `google`, and `twitter`. If an unsupported `title` is provided, a default icon (`assets/icons/default.svg`) is used.
+- Ensure all SVG assets are correctly declared in `pubspec.yaml` and exist in the `assets/icons/` folder.
+- If an SVG asset is missing, the app may throw an error. Consider adding error handling (e.g., a placeholder widget) for robustness.
+- To add support for more platforms, extend the internal icon mapping in the `SocialButton` widget by updating its `_iconMap`.
 
 ## License
 MIT License

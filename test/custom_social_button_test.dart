@@ -21,7 +21,7 @@ void main() {
           const SocialButton(
             title: 'facebook',
             buttonTitle: 'Sign in with Facebook',
-            svgIcon: 'assets/icons/facebook.svg',
+
           ),
         ),
       );
@@ -44,7 +44,7 @@ void main() {
           SocialButton(
             title: 'instagram',
             buttonTitle: 'Sign in with Instagram',
-            svgIcon: 'assets/icons/instagram.svg',
+
             color: Colors.pink,
             height: 60.0,
             width: 250.0,
@@ -99,7 +99,7 @@ void main() {
           SocialButton(
             title: 'google',
             buttonTitle: 'Sign in with Google',
-            svgIcon: 'assets/icons/google.svg',
+
             onTap: () {
               wasTapped = true;
             },
@@ -122,7 +122,7 @@ void main() {
           const SocialButton(
             title: 'twitter',
             buttonTitle: 'Sign in with Twitter',
-            svgIcon: 'assets/icons/twitter.svg',
+
             textStyle: TextStyle(fontSize: 18.0),
           ),
         ),

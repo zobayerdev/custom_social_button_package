@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.6
+- Change package system, you just write on the title name as facebook, google, github
+- Don't added any kind of icon, icon added it already
+- Enjoy the 1.0.6 version.
+
 ## 1.0.5
 - Changed new color system for svg icon.
 - You can change the SVG Icon easily.

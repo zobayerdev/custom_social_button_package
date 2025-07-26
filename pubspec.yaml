@@ -1,6 +1,6 @@
 name: custom_social_button
 description: A customizable Flutter button widget that displays user-provided SVG icons with customizable size alongside the button title.
-version: 1.0.5
+version: 1.0.6
 homepage: https://github.com/zobayerdev/custom_social_button_package
 
 environment:
@@ -18,4 +18,11 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
-# No assets bundled with the package
+  assets:
+    - assets/icons/apple.svg
+    - assets/icons/facebook.svg
+    - assets/icons/google.svg
+    - assets/icons/linkedin.svg
+    - assets/icons/messenger.svg
+    - assets/icons/twitter.svg
+    - assets/icons/github.svg

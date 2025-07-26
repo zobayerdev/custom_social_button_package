@@ -39,7 +39,6 @@ class SocialButtonDemo extends StatelessWidget {
             SocialButton(
               title: 'facebook',
               buttonTitle: 'Sign in with Facebook',
-              svgIcon: 'assets/icons/facebook.svg',
               color: Colors.blue,
               height: 50.0,
               width: 300.0,
@@ -64,7 +63,6 @@ class SocialButtonDemo extends StatelessWidget {
             SocialButton(
               title: 'instagram',
               buttonTitle: 'Sign in with Instagram',
-              svgIcon: 'assets/icons/instagram.svg',
               color: Colors.pink,
               height: 60.0,
               borderRadius: 8.0,
@@ -87,7 +85,6 @@ class SocialButtonDemo extends StatelessWidget {
             SocialButton(
               title: 'google',
               buttonTitle: 'Sign in with Google',
-              svgIcon: 'assets/icons/google.svg',
               color: Colors.red,
               onTap: () {
                 ScaffoldMessenger.of(context).showSnackBar(
